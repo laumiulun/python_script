@@ -27,7 +27,7 @@ def readfile(filenameinput):
                 out.append(line)
     return out
 
-def readfile2(filenameinput):
+def readfile_csv(filenameinput):
     out = np.loadtxt(open(filenameinput, "rb"), delimiter=",", dtype='str')
     return out
     numpy.loadtxt(open("test.csv", "rb"), delimiter=",", skiprows=1)
@@ -40,43 +40,57 @@ def Tryfile(command,message):
         sys.exit() 
 
 
-#################
+#####################
 
-filenameinput=raw_input("Enter file name: ")
-Tryfile(filenameinput,'Inputfile')
-#filenameinput = 'Onecrack0.csv'
+while True:    
+    #filenameinput=raw_input("Enter file name: ")
+    filenameinput = 'contents/test.csv'
+    try:
+        f = open(filenameinput)
+        break
+    except BaseException:
+        print bcolors.RED+'ERROR: INPUT FILE NOT FOUND'+bcolors.N
+
 
 #out=readfile(filenameinput)
 
-out = readfile2(filenameinput)
+out = readfile_csv(filenameinput)
 title = out[0]
+for i in range(len(title)):
+    title[i]=title[i].replace('"','')
 out = np.delete(out,[0],0)
-
 row=len(out)
 col=len(out[0])
 
+print out 
+
+while True:
+    #numline = int(2*raw_input("How many dataline: "))
+    numline = 2
+    if isinstance(numline,(int,long)) == True:
+        break
+    else:
+        print 'Error, not int'
 
 
+for i in range(numline):
+    x = raw_input("What column is X: ")
+    y = raw_input("What column is Y: ")
+    
+    xlabel=str(title[int(x)])
+    ylabel=str(title[int(y)])
+    
+    xcol=[]
+    for i in range(len(out)):
+        xcol.append([])
+        xcol[i]= float(out[i,int(x)])
+    ycol=[]
+    for i in range(len(out)):
+        ycol.append([])
+        ycol[i]= float(out[i,int(y)])
+
+    plt.plot(xcol,ycol)
 
 
-#title = out[0]
-#time = float(out)
+plt.show()
 
-
-
-
-#for i in range(len(out)):
-#    x1.append([])
-#    x2.append([])
-#    x1[i]=float(out[i][0])
-#    x2[i]=float(out[i][5])
-#    
-#
-#
-#plt.plot(x2,x1,'r-')
-#
-#plt.xlabel('Radius(m)')
-#plt.ylabel('Temperature(K)')
-#'''plt.ylabel('Thermal Conductivity($W/m^{2}*K$)')'''
-#
-#plt.show()
