@@ -8,6 +8,7 @@ Created on Fri Mar 02 11:28:13 2018
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
+import subprocess import 
 
 # COLORS CLASS
 class bcolors:
@@ -33,6 +34,7 @@ def readfile_csv(filenameinput):
     numpy.loadtxt(open("test.csv", "rb"), delimiter=",", skiprows=1)
 
 def basic_graph():
+    print subprocess.check_output(["ls"])
     while True:    
         filenameinput=raw_input("Enter file name: ")
         try:
