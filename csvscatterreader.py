@@ -8,7 +8,7 @@ Created on Fri Mar 02 11:28:13 2018
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
-import subprocess import 
+import subprocess 
 
 # COLORS CLASS
 class bcolors:
