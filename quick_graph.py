@@ -33,7 +33,7 @@ def readfile_csv(filenameinput):
     return out
     numpy.loadtxt(open("test.csv", "rb"), delimiter=",", skiprows=1)
 
-def basic_graph():
+def simple_scatter():
     print subprocess.check_output(["ls"])
     while True:    
         filenameinput=raw_input("Enter file name: ")
