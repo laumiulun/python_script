@@ -13,7 +13,13 @@ import subprocess
 home_dir = os.getcwd()
 moose_base = os.path.join(home_dir,'moose')
 moose_mol_dir = os.path.join(moose_base,'modules')
-#subprocess.call("git clone git@github.com:idaholab/moose.git", shell=True)
+
+
+test_moose=os.path.exists(moose_base)
+# add exception for if moose is clone already
+if result == None:
+    print("MOOSE doesn't exist")
+    subprocess.call("git clone git@github.com:idaholab/moose.git", shell=True)
 os.chdir(moose_base)
 rebuild_libmesh=subprocess.call("./scripts/update_and_rebuild_libmesh.sh", shell=True)
 
