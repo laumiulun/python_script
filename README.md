@@ -10,6 +10,16 @@ To run these code effortlessly, clone the repos and export as environment variab
 ###### findbit.py
 Find the excluding bit of UTF in the code
 
+###### size_varying_script.py
+Use to run continous PFM simulations of different particle sizes
+
+###### quick_graph.py
+Use of quickly graph data on python.
+
+```
+import quick_graph
+quick_graph.simple_scatter
+```
 
 
 ### Bash script
