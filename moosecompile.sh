@@ -10,7 +10,7 @@ To compile moose and its submodules directly
 
 import os
 import subprocess
-
+import sys
 
 home_dir = os.getcwd()
 moose_base = os.path.join(home_dir,'moose')
@@ -20,6 +20,7 @@ if "-h" in sys.argv:
   print "-h = help"
   print "-c = compile only"
   print "-u = update_libmesh"
+  exit()
 # No need to reclone
 if "-c" in sys.argv:
   test_moose=os.path.exists(moose_base)
